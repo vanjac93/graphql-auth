@@ -13,12 +13,14 @@ import Dashboard from './components/Dashboard';
 //   uri: 'http://localhost:4000/graphql'
 // })
 
+const uri = `http://localhost:${process.env.PORT}/graphql`
+
 const client = new ApolloClient({
   cache: new InMemoryCache({
     dataIdFromObject: o => o.id
   }),
   // link
-  uri: 'http://localhost:4000/graphql'
+  uri: '/graphql'
 })
 
 const hashRouter = createHashRouter([

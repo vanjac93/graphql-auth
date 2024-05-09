@@ -24,7 +24,7 @@ export default function Header(props) {
 
     return <div style={{padding: 10, display: 'flex', gap: 20, justifyContent: 'end'}}>
       {
-        data.user ? <button disabled={logoutData.loading}  onClick={onLogout} className="btn">{
+        data?.user ? <button disabled={logoutData.loading}  onClick={onLogout} className="btn">{
           logoutData.loading ? 'Signing out...' : 'Sign out'}</button>
         :
         <>

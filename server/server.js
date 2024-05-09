@@ -1,3 +1,8 @@
+const dotenv = require('dotenv')
+
+dotenv.config({path: '.env.local'})
+dotenv.config()
+
 const express = require('express');
 const models = require('./models');
 const expressGraphQL = require('express-graphql');
@@ -12,7 +17,8 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your Mongo Atlas URI
-const MONGO_URI = 'mongodb+srv://vanja-test:vanja-test@auth-test.e2amcgo.mongodb.net/?retryWrites=true&w=majority&appName=auth-test';
+const MONGO_URI = process.env.DB_STRING
+
 if (!MONGO_URI) {
   throw new Error('You must provide a Mongo Atlas URI');
 }
