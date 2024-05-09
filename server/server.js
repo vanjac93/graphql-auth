@@ -12,7 +12,7 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your Mongo Atlas URI
-const MONGO_URI = '';
+const MONGO_URI = 'mongodb+srv://vanja-test:vanja-test@auth-test.e2amcgo.mongodb.net/?retryWrites=true&w=majority&appName=auth-test';
 if (!MONGO_URI) {
   throw new Error('You must provide a Mongo Atlas URI');
 }
@@ -58,7 +58,7 @@ app.use(passport.session());
 // to the GraphQL instance.
 app.use(
   '/graphql',
-  expressGraphQL({
+  expressGraphQL.graphqlHTTP({
     schema,
     graphiql: true
   })

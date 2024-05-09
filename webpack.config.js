@@ -3,9 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './client/index.js',
+  mode: 'development',
   output: {
     path: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: "/",
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -19,6 +24,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'client/index.html'
-    })
+    }),
+    new webpack.ProvidePlugin({
+      React: "react",
+    }),
   ]
 };
